@@ -1,0 +1,20 @@
+<div class="configuration-cog" data-ng-click="app.isConfigOpen = !app.isConfigOpen">
+
+    <i class="fa fa-book"></i>
+
+</div>
+<div class="configuration-options">
+  <div class="title">
+    Courses
+  </div>
+  <div class="option" ng-repeat="course in course">
+    <span>{{course.title}}</span>
+    <label class="switch switch-sm pull-right">
+      <input sref="_self" type="radio" ng-change="courseChange(course)" name="course" ng-model="course.current" value="true">
+      <span>
+                <i class="handle"></i>
+            </span>
+    </label>
+  </div>
+
+</div>

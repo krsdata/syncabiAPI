@@ -1,0 +1,67 @@
+<div style="display: none;"><a ui-sref-active='active' ui-sref='app.createSyllabus-#1' id="clone">Clone Syllabus</a></div>
+
+<script>
+  swal({
+      showConfirmButton: false,
+    title: 'Syllabus Creator',
+    type: 'info',
+    html:
+      '<button id="cloneStart">links</button> ',
+    confirmButtonText:
+      '<i class="fa fa-thumbs-up"></i> Great!',
+    cancelButtonText:
+      '<i class="fa fa-thumbs-down"></i>'
+  })
+
+  $("#cloneStart").click(function(){swal.close();
+
+    swal({
+      title: 'Input something',
+      input: 'text',
+      showCancelButton: true,
+      inputValidator: function (value) {
+        return new Promise(function (resolve, reject) {
+          if (value) {
+            resolve()
+          } else {
+            reject('You need to write something!')
+          }
+        })
+      }
+    }).then(function (result) {
+      swal(
+        'Syllabus ' + result + " Has Been Cloned!",
+        '',
+        'success'
+      ).then(function(){$("#clone").trigger("click");});
+    })
+  });
+
+
+</script>
+
+<style>
+  .one-dotted {
+
+    margin: auto;
+    width: 60%;
+    height: 150px;
+    border: 1px #333 dashed;
+    position: relative;
+
+
+  }
+  .one {
+    width:42%;
+    height:200px;
+    background-color: #f2f2f2;
+    margin-right:30px;
+    float:right;
+    border-radius: 1px;
+  }
+  .child_div_1{
+    float: right;
+
+  }
+
+</style>
